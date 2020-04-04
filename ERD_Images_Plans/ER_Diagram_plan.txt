@@ -1,41 +1,46 @@
-department
+Department
 -
-dept_no PK VARHAR(10)
-dept_name VARCHAR(45)
+ID int PK
+dept_no VARCHAR
+dept_name VARCHAR
 
-department_emp 
+Dept_emp
 -
-emp_no PK int
-dept_no FK VARCHAR(10)
+emp_no int PK
+dept_ID VARCHAR FK >- Department.ID
 from_date date
 to_date date 
 
-manager
+Manager 
 -
-dept_no FK VARCHAR(10)
-emp_no PK int
+ID int PK
+dept_ID int FK >- Department.ID
+emp_no int FK - Employee.emp_no
 from_date date
 to_date date
 
-employees
+Employee
 -
-emp_no PK int
-birth_date date
-first_name VARCHAR(35)
-last_name VARCHAR(35)
-gender VARCHAR(1)
+ID int PK
+emp_no int FK -< Dept_emp.emp_no
+first_name VARCHAR
+last_name VARCHAR
+gender VARCHAR
+birthdate date
 hire_date date
 
-salaries
+Salary
 -
-emp_no PK int
+ID int PK
+emp_no int FK -< Employee.emp_no
 salary int
 from_date date
-to_date date 
-
-titles 
--
-emp_no PK int
-title VARCHAR(50)
-from_date date
 to_date date
+
+Title
+-
+ID int PK
+emp_no int FK -< Employee.emp_no
+title_name VARCHAR
+from_date date
+to_date date 

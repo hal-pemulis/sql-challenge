@@ -6,43 +6,49 @@ DROP TABLE IF EXISTS titles;
 DROP TABLE IF EXISTS salaries;
 
 CREATE TABLE department (
-  dept_no character varying(10) NOT NULL,
-  dept_name character varying(45) NOT NULL
+	id SERIAL PRIMARY KEY,
+	dept_no VARCHAR(10) NOT NULL,
+	dept_name VARCHAR(45) NOT NULL
 );
 
 CREATE TABLE department_emp (
-	emp_no integer NOT NULL,
-	dept_no character varying(10) NOT NULL,
-	from_date date NOT NULL,
-	to_date date NOT NULL
+	id SERIAL PRIMARY KEY,
+	emp_no INT NOT NULL,
+	dept_no VARCHAR(10) NOT NULL,
+	from_date DATE NOT NULL,
+	to_date DATE NOT NULL
 );
 
 CREATE TABLE manager (
-	dept_no character varying(10) NOT NULL,
-	emp_no integer NOT NULL,
-	from_date date NOT NULL,
-	to_date date NOT NULL
+	id SERIAL PRIMARY KEY,
+	dept_no VARCHAR(10) NOT NULL,
+	emp_no INT NOT NULL,
+	from_date DATE NOT NULL,
+	to_date DATE NOT NULL
 );
 
 CREATE TABLE employees (
-	emp_no integer NOT NULL,
-	birth_date date NOT NULL,
+	id SERIAL PRIMARY KEY,
+	emp_no INT NOT NULL,
+	birth_date DATE NOT NULL,
 	first_name VARCHAR(35) NOT NULL,
 	last_name VARCHAR(35) NOT NULL,
-	gender VARCHAR(1) check (gender in ('F','M')),
-	hire_date date NOT NULL
+	gender VARCHAR(1) CHECK (gender IN ('F','M')),
+	hire_date DATE NOT NULL
 );
 
 CREATE TABLE salaries (
-	emp_no integer NOT NULL,
-	salary integer NOT NULL,
-	from_date date NOT NULL,
-	to_date date NOT NULL	
+	id SERIAL PRIMARY KEY,
+	emp_no INT NOT NULL,
+	salary INT NOT NULL,
+	from_date DATE NOT NULL,
+	to_date DATE NOT NULL	
 );
 
 CREATE TABLE titles (
-	emp_no integer NOT NULL,
+	id SERIAL PRIMARY KEY,
+	emp_no INT NOT NULL,
 	title VARCHAR(50) NOT NULL,
-	from_date date NOT NULL,
-	to_date date NOT NULL
+	from_date DATE NOT NULL,
+	to_date DATE NOT NULL
 );
